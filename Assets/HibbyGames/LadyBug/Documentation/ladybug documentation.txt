@@ -1,0 +1,131 @@
+Ladybug Documentation    
+
+Table of Contents
+
+1. Color Changer Script.
+2. Attach the Color Changer Script.
+3. Setup the Color Changer Script.
+4. Methods that can be called from outside the Color Changer Script.
+5. Extra note about the Color Changer Script.
+6. Follow Position Script.
+7. Attach the Follow Position Script.
+8. Setup the Follow Position Script.
+9. The Script will update the position and rotation.
+10. The Target Transform should be attached in the inspector.
+11. The Script can change the speed of animation.
+12. The Animator needs a float parameter called velocity.
+
+
+
+1. 	COLOR CHANGER SCRIPT
+
+ 	To use the colorChanger script, follow these steps:
+
+2.  	Attach the script to a GameObject in your Unity scene that has a Renderer 
+    	component.
+
+3.  	In the Unity Inspector, you will see a number of fields that you can 
+    	customize to suit your needs. These include:
+
+    	Custom Colors: An array of colors that you can use to change the color 
+    	of the object's material. You can add, remove, or modify these colors as 
+    	needed.
+
+    	Default Color: The color that the object will start with when the scene 
+    	is loaded. You can select a color from the Custom Colors array by 
+    	specifying its element number.
+
+    	Material: The element number of the material in the Renderer's materials 
+    	array that you want to change the color of.
+
+    	Shader Property: The name of the property in the material's shader that 
+    	controls the color. This is typically "_Color" or "_BaseColor".
+
+    	Random Color: If this checkbox is checked, the object will start with a 
+    	random color from the Custom Colors array. If it is not checked, the 
+    	object will start with the color specified in the Default Color field.
+
+4.  	Once you have set up the fields in the Inspector, you can use the 
+    	following methods to change the color of the object's material:
+
+    	setMatColor(int _customColorN): This method sets the material to a color 
+    	from the Custom Colors array. You can specify the element number of the 
+    	color you want to use.
+    
+    	setNewColor(Color _color): This method sets the material to a new specific 
+    	color. You can pass a color value to the method.
+
+    	randomizeColor(): This method sets the material to a random color from the 
+	Custom Colors array.
+
+  	Once you have the script set up and attached to your object, you can call 
+    	these methods from another script to change the color of the object at runtime.
+
+5.  	Note that this script is checking for some condition before applying the 
+    	color, such as if the renderer has material and the material has color 
+    	property, if these conditions are not met then the script will display an 
+    	error and will not be enabled.
+
+6.	FOLLOW POSITION SCRIPT
+
+	To use the followPosition script, follow these steps:
+
+7.	Attach the script to the GameObject that you want to follow another GameObject.
+
+8.	In the Unity Inspector, you will see a number of fields that you can customize
+ 	to suit your needs. These include:
+
+	Target Transform: The Transform component of the GameObject that you want to
+	follow.
+
+	Following Position: A boolean that determines whether or not the GameObject
+	should follow the position of the Target Transform.
+
+	Following Rotation: A boolean that determines whether or not the GameObject
+	should follow the rotation of the Target Transform.
+
+	Move Speed: The speed at which the GameObject should move towards the Target
+ 	Transform position.
+
+	Turn Speed: The speed at which the GameObject should rotate towards the Target
+ 	Transform rotation.
+
+	Anim Velocity Multiplier: A float that controls the speed of the animation when
+ 	the GameObject is moving.
+
+	Anim Velocity Max: A float that sets the maximum speed of the animation when
+ 	the GameObject is moving.
+
+9.	Once you have set up the fields in the Inspector, the script will automatically
+ 	update the position and rotation of the GameObject to match the Target
+ 	Transform.
+
+10.	Note that the script checks if the Target Transform is attached before updating
+ 	the position and rotation of the GameObject. If a Target Transform is not
+ 	attached, the script will not update the position and rotation.
+
+11.	If the GameObject that the script is attached to has an Animator component with
+ 	a velocity float, the script will also control the speed of the animation based
+ 	on the movement of the GameObject. This feature can be disabled by setting the
+ 	hasAnim variable to false in the Inspector.
+
+12.	Finally, note that the script checks for some conditions before updating the
+ 	velocity parameter of the Animator, such as if the Animator has a velocity
+ 	parameter that is a float. If these conditions are not met, the script will not
+ 	update the velocity parameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
